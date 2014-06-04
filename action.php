@@ -12,6 +12,22 @@ $zonechoose	=	 $_POST['zone'];
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="style.css" type="text/css" />
 		<title>Prodiconseil: Inventaire</title>
+		<SCRIPT type="text/javascript"> 
+		 function confirmDechet() { 
+		  if (document.getElementById("check1").checked == true) { 
+			   if (confirm("Vous etes sur que c'est un dechet")) { 
+			   document.getElementById("Form1").submit(); 
+			  }
+			  else{
+				 return false;
+				}
+			 }
+		 else{
+			 document.getElementById("Form1").submit(); 
+			}  
+		  }
+		  
+  </SCRIPT> 
 	</head>
 	<body>
 	
@@ -24,35 +40,55 @@ $A = htmlspecialchars($_POST['ref']);
 $sql = $db->query("SELECT * FROM allref WHERE REF = $A"); 
 $filename = "img/$A.jpg";
 
- 
-
     if($sql->rowCount() > 0) 
     { 
-			if (file_exists($filename)) {    //V�rifie si le fichier existe et renvoie la bonne photo ou la photo de demande.
+			if (file_exists($filename)) {    //Vérifie si le fichier existe et renvoie la bonne photo ou la photo de demande.
 				echo "<img src='img/$A.jpg' width='180px' height='200px'><br><table border='3'>";
 			} else {
 				echo "<img src='img/NOPHOTO.jpg' width='470px' height='200px'><br><table border='3'>";
 			}
               
-        $row = $sql->fetch(); 
-        
+        $row = $sql->fetch();
+		$_SESSION['table'] = "allref";        
     } 
-     
+	else{ //Sinon fait la requte sur la table oldref et affiche un message comme quoi la rfrence ne doit pas tre en stock normalement
+	 $sql2 = $db->query("SELECT * FROM oldref WHERE REF = $A"); 	
+	 if($sql2->rowCount() > 0)
+		{
+			echo "Bobine normalement pas au dépot<br>";
+			if (file_exists($filename)) {    //Vérifie si le fichier existe et renvoie la bonne photo ou la photo de demande.
+				echo "<img src='img/$A.jpg' width='180px' height='200px'><br><table border='3'>";
+			} else {
+				echo "<img src='img/NOPHOTO.jpg' width='470px' height='200px'><br><table border='3'>";
+			}
+              
+        $row = $sql2->fetch(); 
+		$_SESSION['table'] = "oldref";        
+    	} 
+	}     
 ?>
 <tr>
-	
-	<?php foreach ($row as $k => $v): ?>
-
-		<td><?= $k; ?></td>
-
+	</tr>
+	<?php foreach ($row as $value => $key):
+		if ($value !== "DECHET"){
+		echo '<td>'.$value.'</td>';
+		}		
+	?>
+		
 	<?php endforeach ?>
 </tr>
 <tr>
-	<?php foreach ($row as $k): ?>
-		<td><?= $k; ?></td>
+	<?php foreach ($row as $value => $key):
+	
+	if ($value !== "DECHET"){
+		echo '<td>'.$key.'</td>';
+	}?>	 	
 	<?php endforeach ?>
 </tr>
-<form action="action2.php" method="post">
+<form id="Form1" action="action2.php" method="post">
+ <label>
+  <input id="check1" type="checkbox" name="DECHETMODIF" value="1" <?php if($row['DECHET'] == 1) echo 'checked'?> >
+    DECHET</label>
 			<tr>
 				<td></td>
 				<td><input type="text" name="CODEMODIF"  style="width:50px; height:30px" value="<?= isset($_POST['CODE']) ? $_POST['CODE'] : ''; ?>" autofocus/> </td>
@@ -78,11 +114,11 @@ $filename = "img/$A.jpg";
 				<td><input type="textarea" name="COM_INV" style="width:250px; height:30px;" /></td>
 				
 					
-			</tr>';
+			</tr>
 
 <table>
 	 
-	   <tr><td><input class="valid" type="submit" value="Validation"/></td>
+	   <tr><td><input class="valid" type="button" value="Validation" onClick="confirmDechet();" /></td>
 	</form>
 		
 

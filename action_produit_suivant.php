@@ -89,6 +89,7 @@ $filename = "img/$A.jpg";
  <label>
   <input id="check1" type="checkbox" name="DECHETMODIF" value="1" <?php if($row['DECHET'] == 1) echo 'checked'?> >
     DECHET</label>
+<br/>
 <table border="2">		
 			<tr>
 			<td class='police'>REF</td>
@@ -187,7 +188,7 @@ $filename = "img/$A.jpg";
 		
 
 	<form action="index.php" method="post">
-		<td><input class="valid" type="submit" value="X"/></td></tr>
+		<td><input class="cancel" type="submit" value="X"/></td></tr>
 	</form>
 </table>
 

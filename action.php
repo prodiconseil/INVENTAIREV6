@@ -1,5 +1,11 @@
 <?php
 session_start();
+require "class/Session.php";
+if(isset($_POST['ref']) && !is_numeric($_POST['ref'])){
+	Session::setFlash("Veuillez préciser une référence valide", "error");
+	header('Location:index.php');
+	die();
+}
 include ("db.php");
 $_SESSION['reference'] = htmlspecialchars($_POST['ref']);	
 $_SESSION['zone'] = $_POST['zone'];

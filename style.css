@@ -1,6 +1,6 @@
 .police {
 	font-family:"Arial";
-	font-size:30px;
+	font-size:15px;
 }
 
 
@@ -486,4 +486,30 @@ p{
 
 .info_facultative input {
 	margin-top: 4px;
+}
+
+.alert{
+	display: block;
+	font-size: 1.5em;
+	font-family: 'Arial', sans-serif;
+	color: #FFF;
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border-color: #000;
+}
+
+.success{
+	text-align: center;
+	background: #42ac69;
+	border-color: #4ea06d;
+}
+
+.error{
+	text-align: center;
+	background: #f04124;
+	border-color: #de2b0e;
 }

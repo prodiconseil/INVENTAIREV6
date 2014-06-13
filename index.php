@@ -1,4 +1,6 @@
+<?php session_start(); ?>
 <?php require_once('db.php'); ?>
+<?php require ('class/Session.php'); ?><?php require_once('db.php'); ?>
 <?php 
 	$sql = $db->query("SELECT DISTINCT ALLEE FROM zone");
 	$fetch = $sql->fetchAll();
@@ -29,7 +31,7 @@
 <body>
 	<div class="content">
 		<div class="title-head"><h1><center>Inventaire</center></h1></div>
-		
+		 <?= Session::flash(); ?>
 	</div>
 
 	<div class="container">

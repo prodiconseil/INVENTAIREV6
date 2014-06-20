@@ -1,8 +1,22 @@
-.police {
-	font-family:"Arial";
-	font-size:15px;
+.checkbox input[type="checkbox"] {
+    display: none;
+}
+.checkbox input[type="checkbox"]+label {    
+    background: url('img/before.jpg') no-repeat;
+    height:30px;
+    width: 80px;
+    position:relative;
+}
+.checkbox input[type="checkbox"]:checked + label {
+    background: url('img/after.jpg')  no-repeat;
+    position:relative;
+    height:30px;
 }
 
+.police {
+	font-family:"Arial";
+	font-size:20px;
+}
 
 body{
 	margin:0;

@@ -54,7 +54,7 @@ VALUES ('$REF','$CODE','$FAM','$DETAIL','$FIBRE','$COULEUR','$BACK','$GRS','$LAR
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="style.css" type="text/css" />
-		<title>Prodiconseil: Inventaire</title>
+		<title>Prodiconseil: Inventaire</title>		
 	</head>
 <body>
 	<div class="content">
@@ -74,11 +74,9 @@ VALUES ('$REF','$CODE','$FAM','$DETAIL','$FIBRE','$COULEUR','$BACK','$GRS','$LAR
 	</form>
 
 	<form action="index.php" method="post">
-	<td><input class="valid1" type="submit" value="Allee Suivante"/></td></tr>
-	</form>
-
-	<form action="index.php" method="post">
-	<td><input class="cancel" type="submit" value="Retour a l'accueil"/></td></tr>
+	<td><input class="valid1" type="submit" value="Allee Suivante"/></td></tr>	
+	<td><input class="cancel" type="submit" value="Retour a l'accueil"/></td></tr>	
+	<td><input class="valid" type="submit" value="TERMINER"/></td></tr>
 	</form>
 </div>
 	</div>

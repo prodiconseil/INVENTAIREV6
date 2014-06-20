@@ -11,6 +11,7 @@
 	$search_inventaire = $search_inv->fetch();
 	$maxi = max ($search_oldref,$search_allref,$search_inventaire); 
 	$maxi1 = intval($maxi['max(REF)']) + 1;
+	if($maxi1 < 806000) $maxi1 = 806000; 
 	 ?>
 <html>
 <head>

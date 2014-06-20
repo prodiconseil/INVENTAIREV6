@@ -32,6 +32,10 @@
 	<div class="content">
 		<div class="title-head"><h1><center>Inventaire</center></h1></div>
 		 <?= Session::flash(); ?>
+			<form action="index.php" method="post">
+				<td><input class="valid" type="submit" value="Mise à jour"/></td></tr>
+			</form>
+</div>
 	</div>
 
 	<div class="container">

@@ -150,9 +150,10 @@ $filename = "img/$A.jpg";
 ?>
 
 <form id="Form1" action="action2.php" method="post">
- <label>
-  <input id="check1" type="checkbox" name="DECHETMODIF" value="1" <?php if($row['DECHET'] == 1) echo 'checked'?> >
-    DECHET</label>
+ <div class="checkbox">
+   <input id="check1" type="checkbox" name="DECHETMODIF" value="1" <?php if($row['DECHET'] == 1) echo 'checked'?> >
+   <label for="check1">DECHET</label>
+</div>
     <br/><br/>
 <table border="2">			
 			<tr>

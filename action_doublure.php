@@ -158,7 +158,7 @@ $filename = "img/$A.jpg";
 			</div></td>
 		<td>
 		<table>
-	 		 <tr><td><input class="valid" type="submit" value="Validation" onClick="confirmDechet();" /></td>
+	 		 <tr><td><input class="valid" type="button" value="Validation" onClick="confirmDechet();" /></td>
 			<td><input class="cancel" type="button" value="X" onClick="location.href='index.php'"/></td></tr>
 	</table>
 	</td>

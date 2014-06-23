@@ -186,7 +186,7 @@ $filename = "img/$A.jpg";
 
 			<tr>
 			<td class='police'></td>
-			<td class='police'><input class="police" type="text" name="CODEMODIF" style="width:100px; height:50px" value="<?= isset($_POST['CODE']) ? $_POST['CODE'] : ''; ?>" autofocus/> </td>
+			<td class='police'><input class="police" type="text" name="CODEMODIF" style="width:100px; height:50px" value="<?= isset($_POST['CODE']) ? $_POST['CODE'] : ''; ?>"/> </td>
 			<td class='police'></td>
 			<td class='police'><textarea class="police" class="police" name="DETAILMODIF" style="width:200px; height:80px;" /></textarea></td>
 			<td class='police'><input type="text" name="FIBREMODIF" style="width:150px; height:80px;" /></td>

@@ -76,7 +76,7 @@ VALUES ('$REF','$CODE','$FAM','$DETAIL','$FIBRE','$COULEUR','$BACK','$GRS','$LAR
 	<form action="index.php" method="post">
 	<td><input class="valid1" type="submit" value="Allee Suivante"/></td></tr>	
 	<td><input class="cancel" type="submit" value="Retour a l'accueil"/></td></tr>	
-	<td><input class="valid" type="submit" value="TERMINER"/></td></tr>
+<!--	<td><input class="valid" type="submit" value="TERMINER"/></td> </tr>-->
 	</form>
 </div>
 	</div>

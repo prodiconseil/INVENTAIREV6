@@ -1,14 +1,15 @@
 <?php
 session_start();
 include "db.php";
-$search_a = $db->query("SELECT max(REF) FROM allref");
+$search_a = $db->query("SELECT max(REF) FROM allref WHERE REF BETWEEN '805999' AND '807000'");
 $search_allref = $search_a->fetch();
-$search_o = $db->query("SELECT max(REF) FROM oldref");
+$search_o = $db->query("SELECT max(REF) FROM oldref WHERE REF BETWEEN '805999' AND '807000'");
 $search_oldref = $search_o->fetch();
-$search_inv = $db->query("SELECT max(REF) FROM inventaire");
+$search_inv = $db->query("SELECT max(REF) FROM inventaire WHERE REF BETWEEN '805999' AND '807000'");
 $search_inventaire = $search_inv->fetch();
 $maxi = max ($search_oldref,$search_allref,$search_inventaire); 
 $maxi1 = intval($maxi['max(REF)']) + 1;
+if($maxi1 < 806000) $maxi1 = 806000;
 $B = $_SESSION['zone'];
 
 

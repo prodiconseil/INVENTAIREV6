@@ -72,11 +72,11 @@ $filename = "img/$A.jpg";
 			echo "<td><br>
 			<DIV align='left' STYLE='font-family: Arial Black; color: black; font-size: 20pt; margin-top: -20pt'>
 				 <p>Bobine normalement pas au dépot					 
-			</DIV></td>";
+			</DIV><br>";
 			if (file_exists($filename)) {    //Vérifie si le fichier existe et renvoie la bonne photo ou la photo de demande.
-				echo "<td><br><img src='img/$A.jpg' width='180px' height='200px'></td>";
+				echo "<br><img src='img/$A.jpg' width='180px' height='200px'></td>";
 			} else {
-				echo "<td><br>
+				echo "<br>
 				<DIV align='left' STYLE='font-family: Arial Black; color: black; font-size: 20pt; margin-top: -20pt'>
 				 <p>Merci de prendre une photo si possible<br><br>						 
 				</DIV></td>";
@@ -84,7 +84,11 @@ $filename = "img/$A.jpg";
               
         $row = $sql2->fetch(); 
 		$_SESSION['table'] = "oldref";        
-    	} 
+    	}else {
+				Session::setFlash("La référence n'est pas dans la base", "error");
+				header('Location:index.php');
+				die();
+			} 
 	}     
 	?>
 	<td><div class="content">
